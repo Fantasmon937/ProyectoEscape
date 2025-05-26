@@ -68,16 +68,16 @@ public class ControladorItem : MonoBehaviour
     {
         cantidadVend--;
         textCantidadVend.text = cantidadVend + "";
-        JugadorMov.multiSaltoFu = 1.5f;
-        Invoke(nameof(restablecerSalto), 3);
+        //JugadorMov.multiSaltoFu = 1.5f;
+        //Invoke(nameof(restablecerSalto), 3);
     }
 
-    private void restablecerSalto()
+    /*private void restablecerSalto()
     {
 
         JugadorMov.multiSaltoFu = 1;
 
-    }
+    }*/
 
     public void usarItemBoti()
     {

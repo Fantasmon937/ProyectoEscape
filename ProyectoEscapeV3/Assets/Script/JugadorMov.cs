@@ -19,7 +19,7 @@ public class JugadorMov : MonoBehaviour
 
     //-Funciones No necesarias para el juego final
 
-    private bool saltar;
+    /*private bool saltar;
     private bool puedeSal = true;
     public float fuerzaSalto;
 
@@ -29,11 +29,11 @@ public class JugadorMov : MonoBehaviour
     private float tiempoCoyote = 0.2f;
     private bool coyoteTime;
     private float temporizadorCoyote;
-    private bool yaSalto = false;
+    private bool yaSalto = false;*/
 
     void Start()
     {
-        multiSaltoFu = 1;
+        //multiSaltoFu = 1;
         multiplicadorVel = 1;
         rb = this.GetComponent<Rigidbody>();
         anima = GetComponent<Animator>();
@@ -59,7 +59,7 @@ public class JugadorMov : MonoBehaviour
 
         //--Cosas No necesarias para el juego final
 
-        if (!puedeSal && coyoteTime && !yaSalto)
+        /*if (!puedeSal && coyoteTime && !yaSalto)
         {
             temporizadorCoyote += Time.deltaTime;
             if (temporizadorCoyote > tiempoCoyote)
@@ -75,7 +75,7 @@ public class JugadorMov : MonoBehaviour
             saltar = true;
 
             
-        }
+        }*/
     }
 
     private void FixedUpdate()
@@ -84,7 +84,7 @@ public class JugadorMov : MonoBehaviour
 
 
         // -- Cosas no necesarias para el juego final
-        if (saltar && multiSalt > 0 && coyoteTime)
+       /* if (saltar && multiSalt > 0 && coyoteTime)
         {
             //anima.SetBool("salte", true);
             anima.SetTrigger("saltar");
@@ -93,18 +93,18 @@ public class JugadorMov : MonoBehaviour
             multiSalt--;
             saltar = false;
 
-        }
+        }*/
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.CompareTag("Suelo"))
         {
-            yaSalto = false;
+           /* yaSalto = false;
             puedeSal = true;
             coyoteTime = true;
             temporizadorCoyote = 0;
-            multiSalt = 2;
+            multiSalt = 2;*/
             anima.SetBool("suelo", true);
             //Debug.Log("Puede saltar? - " + puedeSal);
 
@@ -115,7 +115,7 @@ public class JugadorMov : MonoBehaviour
     {
         if (collision.transform.CompareTag("Suelo"))
         {
-            puedeSal = true;
+            ///puedeSal = true;
             anima.SetBool("suelo", true);
 
         }
@@ -126,7 +126,7 @@ public class JugadorMov : MonoBehaviour
         if (collision.transform.CompareTag("Suelo"))
         {
             
-            puedeSal = false;
+            //puedeSal = false;
             anima.SetBool("suelo", false);
         }
     }
