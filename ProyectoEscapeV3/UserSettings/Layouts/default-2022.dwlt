@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 780.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 8}
   m_MinSize: {x: 875, y: 371}
   m_MaxSize: {x: 10000, y: 10000}
@@ -74,7 +74,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 96
+  controlID: 52
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -125,7 +125,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 120
+  controlID: 19
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 30
+  controlID: 20
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 31
+  controlID: 21
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -327,7 +327,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 14}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &14
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1253,8 +1253,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73.6
-    width: 1057.4
-    height: 549.4
+    width: 777.4
+    height: 404.6
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -1270,14 +1270,14 @@ MonoBehaviour:
     - {fileID: -8738109241803504102, guid: 5bcbca0a66a8f7f4883e839fcc082bc9, type: 2}
     - {fileID: 3477638458164869050, guid: cda03ac02b3632c4b85da4298f6b73de, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.5102612
+    - e00: 0.689182
       e01: 0
       e02: 0
-      e03: 23.841291
+      e03: -92.461914
       e10: 0
-      e11: 0.5102612
+      e11: 0.689182
       e12: 0
-      e13: 30.92877
+      e13: -0.457016
       e20: 0
       e21: 0
       e22: 1
@@ -1286,14 +1286,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.6903533
+    - e00: 0.7050455
       e01: 0
       e02: 0
-      e03: -55.222652
+      e03: -124.69008
       e10: 0
-      e11: 0.6903533
+      e11: 0.7050455
       e12: 0
-      e13: -33.04434
+      e13: -37.039948
       e20: 0
       e21: 0
       e22: 1
@@ -1363,7 +1363,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Material
+    - Assets/Script
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1371,16 +1371,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 61
   m_LastFolders:
-  - Assets/Material
+  - Assets/Script
   m_LastFoldersGridSize: 61
-  m_LastProjectPath: F:\FES\Diplomado\TrueMaterial\TheGame\ProyectoEscapeV3
+  m_LastProjectPath: F:\FES\Diplomado\FinalFinal\ProyectoEscape\ProyectoEscapeV3
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 59.80002}
-    m_SelectedIDs: b2780000
-    m_LastClickedID: 30898
-    m_ExpandedIDs: 00000000947800009678000000ca9a3b
+    m_SelectedIDs: 96410000
+    m_LastClickedID: 16790
+    m_ExpandedIDs: 00000000ea40000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1408,7 +1408,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000009478000096780000
+    m_ExpandedIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1435,7 +1435,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: c6230000eeb40000aa5c0000587500005c7800007260000096620000da62000034600000f86e0000aa7600008a73000000000000fc700000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1460,7 +1460,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 323.80002}
     m_GridSize: 61
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 175.00002
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
-    m_CachedPref: -197.79996
+    m_CachedPref: 340
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
@@ -1550,21 +1550,21 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: eaa4ffff0efbffffdc7a0000367b0000d47c0000
+      m_ExpandedIDs: 9e28feffb031feff4a67feff1a68fefff069feff82db0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: ControladorEscena
+        m_OriginalName: ControladorEscena
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: 56230
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -1943,9 +1943,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -33.35888, y: 5.3692703, z: -30.57616}
+    m_Target: {x: 30.760185, y: 5.0310593, z: 14.782107}
     speed: 2
-    m_Value: {x: -33.35888, y: 5.3692703, z: -30.57616}
+    m_Value: {x: 30.760185, y: 5.0310593, z: 14.782107}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1991,13 +1991,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.0007112872, y: -0.99885225, z: 0.045579314, w: -0.015571843}
+    m_Target: {x: 0.2062584, y: -0.70487916, z: 0.22735311, w: 0.6395124}
     speed: 2
-    m_Value: {x: -0.0007112779, y: -0.99883914, z: 0.04557872, w: -0.015571639}
+    m_Value: {x: 0.20548446, y: -0.7051294, z: 0.22649994, w: 0.63973933}
   m_Size:
-    m_Target: 2.6027825
+    m_Target: 33.966732
     speed: 2
-    m_Value: 2.6027825
+    m_Value: 35.567257
   m_Ortho:
     m_Target: 1
     speed: 2
