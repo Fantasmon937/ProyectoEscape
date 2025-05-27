@@ -100,12 +100,13 @@ public class JugadorMov : MonoBehaviour
     {
         if (collision.transform.CompareTag("Suelo"))
         {
-           /* yaSalto = false;
-            puedeSal = true;
-            coyoteTime = true;
-            temporizadorCoyote = 0;
-            multiSalt = 2;*/
-            anima.SetBool("suelo", true);
+            // -- Cosas no necesarias para el juego final
+            /* yaSalto = false;
+             puedeSal = true;
+             coyoteTime = true;
+             temporizadorCoyote = 0;
+             multiSalt = 2;*/
+            //anima.SetBool("suelo", true);
             //Debug.Log("Puede saltar? - " + puedeSal);
 
         }
@@ -115,8 +116,9 @@ public class JugadorMov : MonoBehaviour
     {
         if (collision.transform.CompareTag("Suelo"))
         {
-            ///puedeSal = true;
-            anima.SetBool("suelo", true);
+            // -- Cosas no necesarias para el juego final
+            //puedeSal = true;
+            //.SetBool("suelo", true);
 
         }
     }
