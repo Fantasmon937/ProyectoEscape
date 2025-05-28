@@ -9,6 +9,7 @@ public class JugadorMov : MonoBehaviour
     [SerializeField]
     private float velMov = 1;
     private Rigidbody rb;
+    [SerializeField] private float multSprint = 350;
 
     public static float multiplicadorVel = 1;
 
@@ -46,7 +47,15 @@ public class JugadorMov : MonoBehaviour
 
         direccionMovimiento = orientacion.forward * movZ + orientacion.right * movX;
 
-        
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            multSprint = velMov * 2;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            multSprint = velMov;
+        }
+
         if (movX != 0 || movZ != 0)
         {
             anima.SetInteger("velocidad", 1);
@@ -80,7 +89,8 @@ public class JugadorMov : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(direccionMovimiento.x * velMov * multiplicadorVel * Time.fixedDeltaTime, rb.velocity.y, direccionMovimiento.z * velMov * multiplicadorVel * Time.fixedDeltaTime);
+        float velocidadTotal = (velMov + multSprint) * multiplicadorVel * Time.fixedDeltaTime;
+        rb.velocity = new Vector3(direccionMovimiento.x * velocidadTotal, rb.velocity.y, direccionMovimiento.z * velocidadTotal);
 
 
         // -- Cosas no necesarias para el juego final
@@ -129,7 +139,7 @@ public class JugadorMov : MonoBehaviour
         {
             
             //puedeSal = false;
-            anima.SetBool("suelo", false);
+            //anima.SetBool("suelo", false);
         }
     }
 
