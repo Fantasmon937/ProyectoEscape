@@ -9,7 +9,7 @@ public class JugadorMov : MonoBehaviour
     [SerializeField]
     private float velMov = 1;
     private Rigidbody rb;
-    [SerializeField] private float multSprint = 350;
+    [SerializeField] private float multSprint;
 
     public static float multiplicadorVel = 1;
 
@@ -38,6 +38,7 @@ public class JugadorMov : MonoBehaviour
         multiplicadorVel = 1;
         rb = this.GetComponent<Rigidbody>();
         anima = GetComponent<Animator>();
+        multSprint = velMov;
     }
 
     void Update()
