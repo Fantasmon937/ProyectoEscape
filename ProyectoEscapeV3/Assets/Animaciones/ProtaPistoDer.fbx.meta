@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 327cebd08f001e44eb190621dd668ed3
+guid: 9385946bf17929041926a9fac6d26efa
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -37,7 +37,7 @@ ModelImporter:
       takeName: mixamo.com
       internalID: -203655887218126122
       firstFrame: 0
-      lastFrame: 62
+      lastFrame: 18
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -48,7 +48,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 1
       loopBlendPositionY: 1
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -384,18 +384,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: LocoV1(Clone)
+    - name: ProtagonistaModelo1(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Prota
-      parentName: LocoV1(Clone)
+      parentName: ProtagonistaModelo1(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: metarig
-      parentName: LocoV1(Clone)
+      parentName: ProtagonistaModelo1(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
@@ -606,7 +606,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 6cdb6fc877b5027479a97a1e745b5f9e, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: f62abafd84c20e741997911fededebcb, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
