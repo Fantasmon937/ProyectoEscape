@@ -134,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 290328642003923039}
   m_Layer: 0
-  m_Name: ConjuntoParedPuerta
+  m_Name: No-ParedPuerta
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
