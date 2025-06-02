@@ -33,6 +33,7 @@ public class MoveZomb : MonoBehaviour
     void Update()
     {
 
+
         if (atacando)
         {
             agent.velocity = new Vector3(0, 0, 0);
@@ -47,6 +48,7 @@ public class MoveZomb : MonoBehaviour
 
         if (vivo)
         {
+            anima.SetBool("muerto", false);
             if (!perseguir)
             {
                 agent.speed = 2;
@@ -67,7 +69,7 @@ public class MoveZomb : MonoBehaviour
             else
             {
                 
-                if (agent.remainingDistance <= 1.2f && atacando==false)
+                if (agent.remainingDistance <= 1f && atacando==false)
                 {
                     agent.velocity = new Vector3(0, 0, 0);
                     anima.SetInteger("caminar", 0);
@@ -82,12 +84,15 @@ public class MoveZomb : MonoBehaviour
 
 
             }
+
+            
         }
         else
         {
             agent.speed = 0;
             agent.velocity = Vector3.zero;
-            anima.SetInteger("caminar", 0);
+            //anima.SetInteger("caminar", 0);
+            anima.SetBool("muerto", true);
             jugador.noDamage();
         }
 
@@ -95,7 +100,7 @@ public class MoveZomb : MonoBehaviour
 
     public void autoDestruccion()
     {
-        Destroy(this.gameObject, 0.5f);
+        Destroy(this.gameObject, 3f);
     }
 
     private void OnCollisionEnter(Collision collision)
