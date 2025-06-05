@@ -17,12 +17,16 @@ public class JugadorMov : MonoBehaviour
 
     private Animator anima;
 
+    public AudioSource pasos;
+
     void Start()
     {
         //multiSaltoFu = 1;
         multiplicadorVel = 1;
         rb = this.GetComponent<Rigidbody>();
         anima = GetComponent<Animator>();
+
+        
     }
 
     void Update()
@@ -35,12 +39,27 @@ public class JugadorMov : MonoBehaviour
         anima.SetFloat("X", movX);
         anima.SetFloat("Y", movZ);
 
+        
+        if(movX == 0 && movZ == 0)
+        {
+            pasos.Stop();
+        }
+        else
+        {
+            if (pasos.isPlaying == false)
+            {
+                pasos.Play();
+            }
+            
+        }
+
     }
 
     private void FixedUpdate()
     {
         rb.velocity = new Vector3(direccionMovimiento.x * velMov * multiplicadorVel * Time.fixedDeltaTime, rb.velocity.y, direccionMovimiento.z * velMov * multiplicadorVel * Time.fixedDeltaTime);
     }
+
 
 
 }
