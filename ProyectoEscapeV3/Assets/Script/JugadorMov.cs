@@ -17,16 +17,14 @@ public class JugadorMov : MonoBehaviour
 
     private Animator anima;
 
-    public AudioSource pasos;
+    public ControlarAudio controAU;
 
     void Start()
     {
-        //multiSaltoFu = 1;
         multiplicadorVel = 1;
         rb = this.GetComponent<Rigidbody>();
         anima = GetComponent<Animator>();
 
-        
     }
 
     void Update()
@@ -42,13 +40,13 @@ public class JugadorMov : MonoBehaviour
         
         if(movX == 0 && movZ == 0)
         {
-            pasos.Stop();
+            controAU.pasos.Stop();
         }
         else
         {
-            if (pasos.isPlaying == false)
+            if (controAU.pasos.isPlaying == false)
             {
-                pasos.Play();
+                controAU.pasos.Play();
             }
             
         }

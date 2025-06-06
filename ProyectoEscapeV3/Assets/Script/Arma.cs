@@ -11,6 +11,8 @@ public class Arma : MonoBehaviour
     public TextMeshProUGUI textMostrarBalas;
     public TextMeshProUGUI textMostrarCargador;
 
+    public ControlarAudio controAU;
+
     void Start()
     {
         municion = 3;
@@ -28,6 +30,7 @@ public class Arma : MonoBehaviour
             municion = municion+ 6;
             cargador--;
             textMostrarBalas.text = "Municion: " + municion;
+            controAU.recarga.Play();
             
 
         }
@@ -37,6 +40,8 @@ public class Arma : MonoBehaviour
             Instantiate(proyectil, this.transform.position, this.transform.rotation);
             municion--;
             textMostrarBalas.text = "Municion: " + municion;
+            controAU.disparo.Play();
+
         }
     }
 }
