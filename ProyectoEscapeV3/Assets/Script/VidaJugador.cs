@@ -11,6 +11,8 @@ public class VidaJugador : MonoBehaviour
     public TextMeshProUGUI textVida;
     public Material color;
 
+    public ControlarAudio controAU;
+
     void Start()
     {
         vida = 50;
@@ -43,6 +45,7 @@ public class VidaJugador : MonoBehaviour
 
     public void perderVida(int decrementoVida)
     {
+        
         if (vida > 0)
         {
             
@@ -66,10 +69,12 @@ public class VidaJugador : MonoBehaviour
 
     public void damage()
     {
+        controAU.golpe.Play();
         color.SetColor("_BaseColor", new Color(0.91f, 0.3f, 0.21f));
     }
     public void noDamage()
     {
+        controAU.golpe.Stop();
         color.SetColor("_BaseColor", Color.white);
     }
 
