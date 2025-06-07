@@ -6,20 +6,26 @@ using UnityEngine;
 public class itemCerveza : MonoBehaviour, IInteractable
 {
     [SerializeField] private Material material;
+    [SerializeField] private Material material2;
     [SerializeField] private float speed = 8;
     private float value;
     private bool desaparece = false;
+    public GameObject cerveza;
 
     void Start()
     {
         desaparece = false;
-        material.SetFloat("_CantidadNoise", 0);
         GetComponent<Rigidbody>().AddForce(Vector3.up , ForceMode.Impulse);
+        cerveza.GetComponent<MeshRenderer>().material = material2;
+
     }
     void Update()
     {
+
         if (desaparece == true)
         {
+            material.SetFloat("_CantidadNoise", 0);
+            cerveza.GetComponent<MeshRenderer>().material = material;
             value = Mathf.Lerp(value, 1, Time.deltaTime * speed);
             material.SetFloat("_CantidadNoise", value);
             if (value >=0.9)

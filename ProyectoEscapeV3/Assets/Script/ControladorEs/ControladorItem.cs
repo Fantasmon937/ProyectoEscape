@@ -68,6 +68,9 @@ public class ControladorItem : MonoBehaviour
     {
         cantidadVend--;
         textCantidadVend.text = cantidadVend + "";
+        jugador.ganarVida(10);
+        jugador.curar();
+        Invoke("colorBlan", 0.3f);
         //JugadorMov.multiSaltoFu = 1.5f;
         //Invoke(nameof(restablecerSalto), 3);
     }
