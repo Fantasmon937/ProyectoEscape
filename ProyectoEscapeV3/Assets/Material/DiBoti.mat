@@ -90,7 +90,11 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
+<<<<<<< HEAD
     - _CantidadNoise: 0.9044096
+=======
+    - _CantidadNoise: 0.90482885
+>>>>>>> a44fe940a21e2b772bef77bca47ef575dbaf4d01
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
