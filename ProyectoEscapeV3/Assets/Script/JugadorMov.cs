@@ -10,6 +10,8 @@ public class JugadorMov : MonoBehaviour
     private float velMov = 1;
     private Rigidbody rb;
 
+    [SerializeField] private float multSprint = 350;
+
     public static float multiplicadorVel = 1;
 
     public Transform orientacion;
@@ -37,8 +39,17 @@ public class JugadorMov : MonoBehaviour
         anima.SetFloat("X", movX);
         anima.SetFloat("Y", movZ);
 
-        
-        if(movX == 0 && movZ == 0)
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            multSprint = velMov * 2;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            multSprint = velMov;
+        }
+
+
+        if (movX == 0 && movZ == 0)
         {
             controAU.pasos.Stop();
         }
@@ -55,7 +66,10 @@ public class JugadorMov : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(direccionMovimiento.x * velMov * multiplicadorVel * Time.fixedDeltaTime, rb.velocity.y, direccionMovimiento.z * velMov * multiplicadorVel * Time.fixedDeltaTime);
+        //rb.velocity = new Vector3(direccionMovimiento.x * velMov * multiplicadorVel * Time.fixedDeltaTime, rb.velocity.y, direccionMovimiento.z * velMov * multiplicadorVel * Time.fixedDeltaTime);
+
+        float velocidadTotal = (velMov + multSprint) * multiplicadorVel * Time.fixedDeltaTime;
+        rb.velocity = new Vector3(direccionMovimiento.x * velocidadTotal, rb.velocity.y, direccionMovimiento.z * velocidadTotal);
     }
 
 
