@@ -90,11 +90,7 @@ Material:
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
-<<<<<<< Updated upstream
-    - _CantidadNoise: 0.9004311
-=======
-    - _CantidadNoise: 0.9070533
->>>>>>> Stashed changes
+    - _CantidadNoise: 0
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -107,7 +103,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _GrosorLinea: 0
+    - _GrosorLinea: 0.039
     - _Metallic: 0
     - _MontoNoise: 206
     - _OcclusionStrength: 1
