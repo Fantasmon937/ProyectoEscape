@@ -28,7 +28,7 @@ public class itemCerveza : MonoBehaviour, IInteractable
             cerveza.GetComponent<MeshRenderer>().material = material;
             value = Mathf.Lerp(value, 1, Time.deltaTime * speed);
             material.SetFloat("_CantidadNoise", value);
-            if (value >=0.9)
+            if (value == 1)
             {
                 obliterar();
             }
