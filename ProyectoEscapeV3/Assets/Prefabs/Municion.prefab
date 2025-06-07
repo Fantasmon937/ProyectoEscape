@@ -5029,7 +5029,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 461c6234a6b5ea246b2236ffa0549d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material: {fileID: 2100000, guid: 7c76eb51841f49e49b845e90df53abfd, type: 2}
+  material: {fileID: 2100000, guid: 5f0f27d1d43567948905e09fd16d0e1c, type: 2}
   speed: 8
   material2: {fileID: 2100000, guid: 7d6ca6eabbd2ae24992ab71e6164a822, type: 2}
   cerveza: {fileID: 4680070176124161873}

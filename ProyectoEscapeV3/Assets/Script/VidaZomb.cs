@@ -70,7 +70,8 @@ public class VidaZomb : MonoBehaviour
 
     public void damage()
     {
-        color.SetColor("_BaseColor", new Color(0.91f, 0.3f, 0.21f));
+        if (vida > 0)
+            color.SetColor("_BaseColor", new Color(0.91f, 0.3f, 0.21f));
     }
 
     public void noDamage()
