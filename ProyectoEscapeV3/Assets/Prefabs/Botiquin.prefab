@@ -4948,6 +4948,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: fb81b795a669dfa4ead9a24b86b4587e, type: 2}
   speed: 8
+  material2: {fileID: 2100000, guid: a728d69cc81f5da4ab9ad172b321f696, type: 2}
+  cerveza: {fileID: 7242128275303517093}
 --- !u!1 &7242128275303517093
 GameObject:
   m_ObjectHideFlags: 0

@@ -5031,3 +5031,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 7c76eb51841f49e49b845e90df53abfd, type: 2}
   speed: 8
+  material2: {fileID: 2100000, guid: 7d6ca6eabbd2ae24992ab71e6164a822, type: 2}
+  cerveza: {fileID: 4680070176124161873}

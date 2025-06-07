@@ -9,6 +9,9 @@ public class ItemVendas : MonoBehaviour, IInteractable
     private float value;
     private bool desaparece = false;
 
+    [SerializeField] private Material material2;
+    public GameObject cerveza;
+
     void Start()
     {
         desaparece = false;
@@ -20,6 +23,8 @@ public class ItemVendas : MonoBehaviour, IInteractable
     {
         if (desaparece == true)
         {
+            material.SetFloat("_CantidadNoise", 0);
+            cerveza.GetComponent<MeshRenderer>().material = material;
             value = Mathf.Lerp(value, 1, Time.deltaTime * speed);
             material.SetFloat("_CantidadNoise", value);
             if (value >= 0.9)
