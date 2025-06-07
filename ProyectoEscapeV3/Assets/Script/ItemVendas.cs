@@ -15,7 +15,7 @@ public class ItemVendas : MonoBehaviour, IInteractable
     void Start()
     {
         desaparece = false;
-        material.SetFloat("_CantidadNoise", 0);
+        cerveza.GetComponent<MeshRenderer>().material = material2;
         GetComponent<Rigidbody>().AddForce(Vector3.up , ForceMode.Impulse);
     }
 

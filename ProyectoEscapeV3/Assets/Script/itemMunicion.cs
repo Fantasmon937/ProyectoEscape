@@ -14,8 +14,8 @@ public class itemMunicion : MonoBehaviour, IInteractable
     void Start()
     {
         desaparece = false;
-        material.SetFloat("_CantidadNoise", 0);
         GetComponent<Rigidbody>().AddForce(Vector3.up , ForceMode.Impulse);
+        cerveza.GetComponent<MeshRenderer>().material = material2;
     }
 
     void Update()
