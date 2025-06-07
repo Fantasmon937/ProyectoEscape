@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Arma : MonoBehaviour
 {
     public GameObject proyectil;
-    public static int municion = 3;
-    public static int cargador = 0;
+    public static int municion = 6;
+    public static int cargador = 1;
+    private int maxMunicion = 6;
+    private int maxCargador;
     public TextMeshProUGUI textMostrarBalas;
     public TextMeshProUGUI textMostrarCargador;
 
@@ -15,10 +18,11 @@ public class Arma : MonoBehaviour
 
     void Start()
     {
-        municion = 3;
-        cargador = 0;
+        municion = maxMunicion;
+        cargador = 1;
         textMostrarBalas.text = "Municion: " + municion;
         textMostrarCargador.text = "Cargadores: " + cargador;
+
     }
 
     void Update()
@@ -27,7 +31,7 @@ public class Arma : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R) && cargador>0 && PausaJuego.juegoPausa == false)
         {
-            municion = municion+ 6;
+            municion = maxMunicion;
             cargador--;
             textMostrarBalas.text = "Municion: " + municion;
             controAU.recarga.Play();
