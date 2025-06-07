@@ -20,6 +20,13 @@ public class MoveZomb : MonoBehaviour
     private float tiempoEntreGolpe = 0.3f;
     private VidaJugador jugador;
 
+    public AudioSource zombie1;
+    public AudioSource zombie2;
+    public AudioSource atacar;
+
+    private float contaTiempAtac = 0;
+    private float tiempEntreAtac = 5;
+
     void Start()
     {
         jugadorObjetivo = GameObject.FindGameObjectWithTag("Player");
@@ -28,6 +35,8 @@ public class MoveZomb : MonoBehaviour
         anima = GetComponent<Animator>();
 
         jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<VidaJugador>();
+
+
     }
 
     void Update()
@@ -36,6 +45,12 @@ public class MoveZomb : MonoBehaviour
 
         if (atacando)
         {
+            zombie1.Stop();
+            zombie2.Stop();
+            if (atacar.isPlaying == false)
+            {
+                atacar.Play();
+            }
             agent.velocity = new Vector3(0, 0, 0);
             contadorTiempo += Time.deltaTime;
 
@@ -51,6 +66,28 @@ public class MoveZomb : MonoBehaviour
             anima.SetBool("muerto", false);
             if (!perseguir)
             {
+                contaTiempAtac += Time.deltaTime + Random.Range(-0.4f, 0.4f);
+
+                
+
+                if(contaTiempAtac >= tiempEntreAtac && zombie1.isPlaying == false && zombie2.isPlaying == false)
+                {
+                    
+                    int aleatorio = Random.Range(0, 4);
+
+                    if (aleatorio == 1 )
+                    {
+                        Debug.Log("sonando");
+                        zombie1.Play();
+                    }
+                    else if (aleatorio == 2)
+                    {
+                        Debug.Log("sonando");
+                        zombie2.Play();
+                    }
+                    contaTiempAtac = 0;
+                }
+                atacar.Stop();  
                 agent.speed = 2;
 
                 if (agent.remainingDistance < 0.5f)
@@ -68,7 +105,13 @@ public class MoveZomb : MonoBehaviour
             }
             else
             {
-                
+                zombie1.Stop();
+                zombie2.Stop();
+
+                if (atacar.isPlaying == false)
+                {
+                    atacar.Play();
+                }
                 if (agent.remainingDistance <= 1f && atacando==false)
                 {
                     agent.velocity = new Vector3(0, 0, 0);
@@ -100,7 +143,10 @@ public class MoveZomb : MonoBehaviour
 
     public void autoDestruccion()
     {
-        Destroy(this.gameObject, 3f);
+        atacar.Stop();
+        zombie1.Stop();
+        zombie2.Stop();
+        Destroy(this.gameObject, 3.5f);
     }
 
     private void OnCollisionEnter(Collision collision)
