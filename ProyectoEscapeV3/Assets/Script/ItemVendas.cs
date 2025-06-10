@@ -27,7 +27,7 @@ public class ItemVendas : MonoBehaviour, IInteractable
             cerveza.GetComponent<MeshRenderer>().material = material;
             value = Mathf.Lerp(value, 1, Time.deltaTime * speed);
             material.SetFloat("_CantidadNoise", value);
-            if (value == 1)
+            if (value >= 0.9 && value<=0.91)
             {
                 obliterar();
             }
@@ -36,8 +36,12 @@ public class ItemVendas : MonoBehaviour, IInteractable
     }
     public void Interact()
     {
-        ControladorItem.cantidadVend++;
-        desaparece = true;
+        if (desaparece == false)
+        {
+            ControladorItem.cantidadVend++;
+            desaparece = true;
+        }
+        
     }
 
     public void obliterar()

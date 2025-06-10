@@ -26,7 +26,7 @@ public class itemMunicion : MonoBehaviour, IInteractable
             cerveza.GetComponent<MeshRenderer>().material = material;
             value = Mathf.Lerp(value, 1, Time.deltaTime * speed);
             material.SetFloat("_CantidadNoise", value);
-            if (value == 1 )
+            if (value >= 0.9 && value <= 0.91)
             {
                 obliterar();
             }
@@ -36,8 +36,12 @@ public class itemMunicion : MonoBehaviour, IInteractable
 
     public void Interact()
     {
-        Arma.cargador++;
-        desaparece = true;
+        
+        if (desaparece == false)
+        {
+            Arma.cargador++;
+            desaparece = true;
+        }
     }
 
     public void obliterar()
