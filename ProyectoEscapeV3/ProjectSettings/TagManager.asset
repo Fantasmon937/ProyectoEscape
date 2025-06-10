@@ -8,14 +8,15 @@ TagManager:
   - BalaJugador
   - ObjetoItem
   - Enemigo
+  - Pared
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - enemigo
   - Water
   - UI
-  - 
+  - Jugador
   - 
   - 
   - 
