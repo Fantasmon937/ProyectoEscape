@@ -7,6 +7,7 @@ public class Libros : MonoBehaviour
 
     public static int contadorLibros = 0;
     private BoxCollider triggerLibros;
+    public AudioSource agarrar;
 
     void Start()
     {
@@ -24,9 +25,10 @@ public class Libros : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            agarrar.Play();
             contadorLibros++;
             triggerLibros.enabled = false;
-            Destroy(this.gameObject, 0.2f);
+            Destroy(this.gameObject, 0.3f);
         }
     }
 }

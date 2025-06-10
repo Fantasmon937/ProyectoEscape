@@ -46,6 +46,9 @@ public class Arma : MonoBehaviour
             textMostrarBalas.text = "Municion: " + municion;
             controAU.disparo.Play();
 
+        }else if (Input.GetButtonDown("Fire1") && municion == 0 && PausaJuego.juegoPausa == false)
+        {
+            controAU.sinMunicion.Play();
         }
     }
 }

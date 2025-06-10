@@ -8,11 +8,9 @@ public class ControlarAudio : MonoBehaviour
     public AudioSource disparo;
     public AudioSource pasos;
     public AudioSource recarga;
+    public AudioSource sinMunicion;
     public AudioSource golpe;
-    public AudioSource zombie1;
-    public AudioSource zombie2;
     public AudioSource ambiente;
-    public AudioSource atacar;
 
     void Start()
     {

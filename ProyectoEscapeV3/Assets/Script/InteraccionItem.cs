@@ -16,6 +16,7 @@ public class InteraccionItem : MonoBehaviour
     public LayerMask ignoreLayer;
     public float anguloDesplazamiento = 0.2f;
     public float anguloDesplazY = 0.2f;
+    public AudioSource agarrar;
     void Start()
     {
         
@@ -36,12 +37,12 @@ public class InteraccionItem : MonoBehaviour
             if (Physics.SphereCast(r, 0.2f, out RaycastHit hit, rangoInteraccion,ignoreLayer) && hit.transform.gameObject.tag == "ObjetoItem")
             {
                 ControladorJuego.interactua = true;
-                Debug.DrawRay(r.origin , r.direction * rangoInteraccion, Color.green);
+                //Debug.DrawRay(r.origin , r.direction * rangoInteraccion, Color.green);
             }
             else
             {
                 ControladorJuego.interactua = false;
-                Debug.DrawRay(r.origin, r.direction * rangoInteraccion, Color.red);
+                //Debug.DrawRay(r.origin, r.direction * rangoInteraccion, Color.red);
             }
 
             if (Input.GetKeyDown(KeyCode.E))
@@ -50,7 +51,7 @@ public class InteraccionItem : MonoBehaviour
                 {
                     if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj))
                     {
-
+                        agarrar.Play();
                         interactObj.Interact();
                     }
                 }

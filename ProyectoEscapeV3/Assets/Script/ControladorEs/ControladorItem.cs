@@ -13,6 +13,7 @@ public class ControladorItem : MonoBehaviour
     public static int cantidadBoti = 1;
 
     private VidaJugador jugador;
+    public AudioSource agarrar;
 
     void Start()
     {
@@ -37,14 +38,17 @@ public class ControladorItem : MonoBehaviour
             if (cantidadCer > 0 && Input.GetKeyDown(KeyCode.Alpha1))
             {
                 usarItemCer();
+                agarrar.Play();
             }
             if (cantidadVend > 0 && Input.GetKeyDown(KeyCode.Alpha2))
             {
                 usarItemVen();
+                agarrar.Play();
             }
             if (cantidadBoti > 0 && Input.GetKeyDown(KeyCode.Alpha3))
             {
                 usarItemBoti();
+                agarrar.Play();
             }
         }
 
