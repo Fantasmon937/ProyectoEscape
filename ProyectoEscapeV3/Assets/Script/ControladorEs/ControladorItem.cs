@@ -21,11 +21,25 @@ public class ControladorItem : MonoBehaviour
     private String itemCerPrefsName = "ItemCer";
     private String itemVendPrefsName = "ItemVend";
 
+    private string escenaAnt="";
+    private bool escenaDiferente = true;
+
 
 
     void Start()
     {
+        
         Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name != escenaAnt)
+        {
+            escenaDiferente = true;
+            escenaAnt = currentScene.name;
+        }
+        else
+        {
+            escenaDiferente = false;
+        }
+
         if (currentScene.name == "Nivel0" || currentScene.name == "Muestra" )
         {
             cantidadBoti = 1;
@@ -36,6 +50,7 @@ public class ControladorItem : MonoBehaviour
         {
             LoadData();
         }
+
         jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<VidaJugador>();
         textCantidadCer.text = cantidadCer + "";
         textCantidadVend.text = cantidadVend + "";
@@ -111,7 +126,11 @@ public class ControladorItem : MonoBehaviour
 
     private void OnDestroy()
     {
-        SaveData();
+        if (escenaDiferente == false)
+        {
+            SaveData();
+        }
+        
     }
 
     private void SaveData()

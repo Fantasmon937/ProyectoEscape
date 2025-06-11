@@ -17,10 +17,23 @@ public class VidaJugador : MonoBehaviour
 
     private String vidaPrefsName = "ItemVida";
 
+    private string escenaAnt = "";
+    private bool escenaDiferente = true;
+
     void Start()
     {
 
         Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name != escenaAnt)
+        {
+            escenaDiferente = true;
+            escenaAnt = currentScene.name;
+        }
+        else
+        {
+            escenaDiferente = false;
+        }
+
         if (currentScene.name == "Nivel0" || currentScene.name == "Muestra")
         {
             vida = 80;
@@ -98,7 +111,10 @@ public class VidaJugador : MonoBehaviour
 
     private void OnDestroy()
     {
-        SaveData();
+        if (escenaDiferente == false)
+        {
+            SaveData();
+        }
     }
 
     private void SaveData()
