@@ -1,21 +1,34 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class VidaJugador : MonoBehaviour
 {
-    public static int vida = 100;
+    public static int vida = 80;
     public Slider barraVida;
     public TextMeshProUGUI textVida;
     public Material color;
 
     public ControlarAudio controAU;
 
+    private String vidaPrefsName = "ItemVida";
+
     void Start()
     {
-        vida = 50;
+
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Nivel0" || currentScene.name == "Muestra")
+        {
+            vida = 80;
+        }
+        else
+        {
+            LoadData();
+        }
         noDamage();
     }
 
@@ -81,5 +94,20 @@ public class VidaJugador : MonoBehaviour
     public void curar()
     {
         color.SetColor("_BaseColor", new Color(0.41f, 0.81f, 0.41f));
+    }
+
+    private void OnDestroy()
+    {
+        SaveData();
+    }
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt(vidaPrefsName, vida);
+    }
+
+    private void LoadData()
+    {
+        vida = PlayerPrefs.GetInt(vidaPrefsName, 80);
     }
 }

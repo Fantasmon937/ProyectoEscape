@@ -42,102 +42,112 @@ public class MoveZomb : MonoBehaviour
     void Update()
     {
 
-
-        if (atacando)
+        if (PausaJuego.juegoPausa == false)
         {
-            zombie1.Stop();
-            zombie2.Stop();
-            if (atacar.isPlaying == false)
-            {
-                atacar.Play();
-            }
-            agent.velocity = new Vector3(0, 0, 0);
-            contadorTiempo += Time.deltaTime;
-
-            if (contadorTiempo >= tiempoEntreGolpe)
-            {
-                jugador.perderVida(4);
-                contadorTiempo = 0;
-            }
-        }
-
-        if (vivo)
-        {
-            anima.SetBool("muerto", false);
-            if (!perseguir)
-            {
-                contaTiempAtac += Time.deltaTime + Random.Range(-0.4f, 0.4f);
-
-                
-
-                if(contaTiempAtac >= tiempEntreAtac && zombie1.isPlaying == false && zombie2.isPlaying == false)
-                {
-                    
-                    int aleatorio = Random.Range(0, 4);
-
-                    if (aleatorio == 1 )
-                    {
-                        Debug.Log("sonando");
-                        zombie1.Play();
-                    }
-                    else if (aleatorio == 2)
-                    {
-                        Debug.Log("sonando");
-                        zombie2.Play();
-                    }
-                    contaTiempAtac = 0;
-                }
-                atacar.Stop();  
-                agent.speed = 2;
-
-                if (agent.remainingDistance < 0.5f)
-                {
-                    indice++;
-                }
-
-                if (indice >= puntosDestino.Length)
-                {
-                    indice = 0;
-                }
-                agent.SetDestination(puntosDestino[indice].position);
-                anima.SetInteger("caminar", 1);
-
-            }
-            else
+            if (atacando)
             {
                 zombie1.Stop();
                 zombie2.Stop();
-
                 if (atacar.isPlaying == false)
                 {
                     atacar.Play();
                 }
-                if (agent.remainingDistance <= 1f && atacando==false)
+                agent.velocity = new Vector3(0, 0, 0);
+                contadorTiempo += Time.deltaTime;
+
+                if (contadorTiempo >= tiempoEntreGolpe)
                 {
-                    agent.velocity = new Vector3(0, 0, 0);
-                    anima.SetInteger("caminar", 0);
+                    jugador.perderVida(4);
+                    contadorTiempo = 0;
+                }
+            }
+
+            if (vivo)
+            {
+                anima.SetBool("muerto", false);
+                if (!perseguir)
+                {
+                    contaTiempAtac += Time.deltaTime + Random.Range(-0.4f, 0.4f);
+
+
+
+                    if (contaTiempAtac >= tiempEntreAtac && zombie1.isPlaying == false && zombie2.isPlaying == false)
+                    {
+
+                        int aleatorio = Random.Range(0, 4);
+
+                        if (aleatorio == 1)
+                        {
+                            Debug.Log("sonando");
+                            zombie1.Play();
+                        }
+                        else if (aleatorio == 2)
+                        {
+                            Debug.Log("sonando");
+                            zombie2.Play();
+                        }
+                        contaTiempAtac = 0;
+                    }
+                    atacar.Stop();
+                    agent.speed = 2;
+
+                    if (agent.remainingDistance < 0.5f)
+                    {
+                        indice++;
+                    }
+
+                    if (indice >= puntosDestino.Length)
+                    {
+                        indice = 0;
+                    }
+                    agent.SetDestination(puntosDestino[indice].position);
+                    anima.SetInteger("caminar", 1);
+
                 }
                 else
                 {
-                    agent.speed = 13;
-                    anima.SetInteger("caminar", 2);
-                    
+                    zombie1.Stop();
+                    zombie2.Stop();
+
+                    if (atacar.isPlaying == false)
+                    {
+                        atacar.Play();
+                    }
+                    if (agent.remainingDistance <= 1f && atacando == false)
+                    {
+                        agent.velocity = new Vector3(0, 0, 0);
+                        anima.SetInteger("caminar", 0);
+                    }
+                    else
+                    {
+                        agent.speed = 13;
+                        anima.SetInteger("caminar", 2);
+
+                    }
+                    agent.SetDestination(jugadorObjetivo.transform.position);
+
+
                 }
-                agent.SetDestination(jugadorObjetivo.transform.position);
 
 
             }
-
-            
+            else
+            {
+                agent.speed = 0;
+                agent.velocity = Vector3.zero;
+                //anima.SetInteger("caminar", 0);
+                anima.SetBool("muerto", true);
+                jugador.noDamage();
+            }
         }
         else
         {
-            agent.speed = 0;
-            agent.velocity = Vector3.zero;
-            //anima.SetInteger("caminar", 0);
-            anima.SetBool("muerto", true);
+            atacar.Stop();
+            zombie1.Stop();
+            zombie2.Stop();
             jugador.noDamage();
         }
+        
 
     }
 

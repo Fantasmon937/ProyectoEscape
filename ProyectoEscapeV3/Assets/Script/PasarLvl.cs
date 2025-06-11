@@ -25,7 +25,6 @@ public class PasarLvl : MonoBehaviour, IInteractable
     {
         Scene escena = SceneManager.GetActiveScene();
 
-        Debug.Log("Ayuddaaaaaaaa");
         if (Libros.contadorLibros >= 5 || escena.name=="Muestra")
         {
             menuWin.SetActive(true);

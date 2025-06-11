@@ -25,6 +25,7 @@ public class FinJuego : MonoBehaviour
             menuLose.SetActive(true);
             PausaJuego.juegoPausa = true;
             Time.timeScale = 0;
+            VidaJugador.vida = 80;
         }
     }
 }

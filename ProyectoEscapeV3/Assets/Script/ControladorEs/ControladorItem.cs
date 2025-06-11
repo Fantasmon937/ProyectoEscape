@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ControladorItem : MonoBehaviour
 {
@@ -15,11 +17,25 @@ public class ControladorItem : MonoBehaviour
     private VidaJugador jugador;
     public AudioSource agarrar;
 
+    private String itemBotiPrefsName = "ItemBoti";
+    private String itemCerPrefsName = "ItemCer";
+    private String itemVendPrefsName = "ItemVend";
+
+
+
     void Start()
     {
-        cantidadBoti = 1;
-        cantidadCer = 1;
-        cantidadVend = 1;
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Nivel0" || currentScene.name == "Muestra" )
+        {
+            cantidadBoti = 1;
+            cantidadCer = 1;
+            cantidadVend = 1;
+        }
+        else
+        {
+            LoadData();
+        }
         jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<VidaJugador>();
         textCantidadCer.text = cantidadCer + "";
         textCantidadVend.text = cantidadVend + "";
@@ -79,13 +95,6 @@ public class ControladorItem : MonoBehaviour
         //Invoke(nameof(restablecerSalto), 3);
     }
 
-    /*private void restablecerSalto()
-    {
-
-        JugadorMov.multiSaltoFu = 1;
-
-    }*/
-
     public void usarItemBoti()
     {
         textCantidadBoti.text = cantidadBoti + "";
@@ -99,4 +108,25 @@ public class ControladorItem : MonoBehaviour
     {
         jugador.noDamage();
     }
+
+    private void OnDestroy()
+    {
+        SaveData();
+    }
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt(itemVendPrefsName, cantidadVend);
+        PlayerPrefs.SetInt(itemCerPrefsName, cantidadCer);
+        PlayerPrefs.SetInt(itemBotiPrefsName, cantidadBoti);
+    }
+
+    private void LoadData()
+    {
+        cantidadBoti = PlayerPrefs.GetInt(itemBotiPrefsName, 0);
+        cantidadVend = PlayerPrefs.GetInt(itemVendPrefsName, 0);
+        cantidadCer = PlayerPrefs.GetInt(itemCerPrefsName, 0);
+    }
+
+
 }

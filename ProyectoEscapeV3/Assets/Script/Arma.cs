@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -16,10 +17,22 @@ public class Arma : MonoBehaviour
 
     public ControlarAudio controAU;
 
+    private String balasPrefsName = "BalasInv";
+    private String cargadorPrefsName = "CarcagorInv";
+
     void Start()
     {
-        municion = maxMunicion;
-        cargador = 1;
+        Scene currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Nivel0" || currentScene.name == "Muestra")
+        {
+            municion = maxMunicion;
+            cargador = 1;
+        }
+        else
+        {
+            LoadData();
+        }
+        
         textMostrarBalas.text = "Municion: " + municion;
         textMostrarCargador.text = "Cargadores: " + cargador;
 
@@ -35,8 +48,12 @@ public class Arma : MonoBehaviour
             cargador--;
             textMostrarBalas.text = "Municion: " + municion;
             controAU.recarga.Play();
-            
 
+
+        }
+        else if ((Input.GetKeyDown(KeyCode.R) && cargador == 0 && PausaJuego.juegoPausa == false))
+        {
+            controAU.sinMunicion.Play();
         }
 
         if (Input.GetButtonDown("Fire1") && municion > 0 && PausaJuego.juegoPausa == false)
@@ -46,9 +63,27 @@ public class Arma : MonoBehaviour
             textMostrarBalas.text = "Municion: " + municion;
             controAU.disparo.Play();
 
-        }else if (Input.GetButtonDown("Fire1") && municion == 0 && PausaJuego.juegoPausa == false)
+        }
+        else if (Input.GetButtonDown("Fire1") && municion == 0 && PausaJuego.juegoPausa == false)
         {
             controAU.sinMunicion.Play();
         }
+    }
+
+    private void OnDestroy()
+    {
+        SaveData();
+    }
+
+    private void SaveData()
+    {
+        PlayerPrefs.SetInt(balasPrefsName, municion);
+        PlayerPrefs.SetInt(cargadorPrefsName, cargador);
+    }
+
+    private void LoadData()
+    {
+        municion = PlayerPrefs.GetInt(balasPrefsName, 1);
+        cargador = PlayerPrefs.GetInt(cargadorPrefsName, 6);
     }
 }
