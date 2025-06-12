@@ -111,7 +111,7 @@ public class VidaJugador : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (escenaDiferente == false)
+        if (escenaDiferente == true)
         {
             SaveData();
         }

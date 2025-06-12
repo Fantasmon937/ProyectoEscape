@@ -20,6 +20,7 @@ public class ControladorItem : MonoBehaviour
     private String itemBotiPrefsName = "ItemBoti";
     private String itemCerPrefsName = "ItemCer";
     private String itemVendPrefsName = "ItemVend";
+    //private String escenaPrefsName = "nombreEscena";
 
     private string escenaAnt="";
     private bool escenaDiferente = true;
@@ -126,8 +127,9 @@ public class ControladorItem : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (escenaDiferente == false)
+        if (escenaDiferente == true)
         {
+            Debug.Log("Datos Guardados");
             SaveData();
         }
         
@@ -138,6 +140,7 @@ public class ControladorItem : MonoBehaviour
         PlayerPrefs.SetInt(itemVendPrefsName, cantidadVend);
         PlayerPrefs.SetInt(itemCerPrefsName, cantidadCer);
         PlayerPrefs.SetInt(itemBotiPrefsName, cantidadBoti);
+        //PlayerPrefs.SetString(escenaPrefsName, escenaAnt);
     }
 
     private void LoadData()
@@ -145,6 +148,7 @@ public class ControladorItem : MonoBehaviour
         cantidadBoti = PlayerPrefs.GetInt(itemBotiPrefsName, 0);
         cantidadVend = PlayerPrefs.GetInt(itemVendPrefsName, 0);
         cantidadCer = PlayerPrefs.GetInt(itemCerPrefsName, 0);
+        //escenaAnt = PlayerPrefs.GetString(escenaPrefsName, "");
     }
 
 
