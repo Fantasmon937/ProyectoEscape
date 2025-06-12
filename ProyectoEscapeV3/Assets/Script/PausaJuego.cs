@@ -27,6 +27,12 @@ public class PausaJuego : MonoBehaviour
 
     }
 
+    public static void NivelCompleto()
+    {
+        Time.timeScale = 0;
+        juegoPausa = true;
+    }
+
     public void pausa()
     {
         Time.timeScale = 0;
