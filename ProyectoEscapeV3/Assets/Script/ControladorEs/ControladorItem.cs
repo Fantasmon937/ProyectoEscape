@@ -20,9 +20,10 @@ public class ControladorItem : MonoBehaviour
     private String itemBotiPrefsName = "ItemBoti";
     private String itemCerPrefsName = "ItemCer";
     private String itemVendPrefsName = "ItemVend";
-    //private String escenaPrefsName = "nombreEscena";
+    private String escenaPrefsName = "nombreEscena";
 
-    private string escenaAnt="";
+    private static string escenaAnt="";
+    private static string escenaAct = "";
     private bool escenaDiferente = true;
 
 
@@ -31,17 +32,10 @@ public class ControladorItem : MonoBehaviour
     {
         
         Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name != escenaAnt)
-        {
-            escenaDiferente = true;
-            escenaAnt = currentScene.name;
-        }
-        else
-        {
-            escenaDiferente = false;
-        }
+        escenaAct = currentScene.name;
 
-        if (currentScene.name == "Nivel0" || currentScene.name == "Muestra" )
+
+        if (escenaAct == "Nivel0" || escenaAct == "Muestra")
         {
             cantidadBoti = 1;
             cantidadCer = 1;
@@ -51,6 +45,22 @@ public class ControladorItem : MonoBehaviour
         {
             LoadData();
         }
+
+
+        if (escenaAct == escenaAnt)
+        {
+            Debug.Log("Escena igual");
+            escenaDiferente = false;
+        }
+        else
+        {
+            Debug.Log("Escena diferente");
+            escenaDiferente = true;
+            escenaAnt = escenaAct;
+            
+        }
+
+        
 
         jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<VidaJugador>();
         textCantidadCer.text = cantidadCer + "";
@@ -129,7 +139,10 @@ public class ControladorItem : MonoBehaviour
     {
         if (escenaDiferente == true)
         {
+
             Debug.Log("Datos Guardados");
+            Debug.Log("Nombre escena Ant  " + escenaAnt);
+            Debug.Log("Nombre escena Actual  " + escenaAct);
             SaveData();
         }
         
@@ -140,7 +153,7 @@ public class ControladorItem : MonoBehaviour
         PlayerPrefs.SetInt(itemVendPrefsName, cantidadVend);
         PlayerPrefs.SetInt(itemCerPrefsName, cantidadCer);
         PlayerPrefs.SetInt(itemBotiPrefsName, cantidadBoti);
-        //PlayerPrefs.SetString(escenaPrefsName, escenaAnt);
+        PlayerPrefs.SetString(escenaPrefsName, escenaAnt);
     }
 
     private void LoadData()
@@ -148,7 +161,7 @@ public class ControladorItem : MonoBehaviour
         cantidadBoti = PlayerPrefs.GetInt(itemBotiPrefsName, 0);
         cantidadVend = PlayerPrefs.GetInt(itemVendPrefsName, 0);
         cantidadCer = PlayerPrefs.GetInt(itemCerPrefsName, 0);
-        //escenaAnt = PlayerPrefs.GetString(escenaPrefsName, "");
+        escenaAnt = PlayerPrefs.GetString(escenaPrefsName);
     }
 
 

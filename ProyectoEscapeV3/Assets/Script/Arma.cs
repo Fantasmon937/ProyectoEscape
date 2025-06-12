@@ -19,23 +19,15 @@ public class Arma : MonoBehaviour
 
     private String balasPrefsName = "BalasInv";
     private String cargadorPrefsName = "CarcagorInv";
+    private String escenaPrefsName = "nombreEscena";
 
-    private string escenaAnt = "";
+    private static string escenaAnt = "";
     private bool escenaDiferente = true;
 
     void Start()
     {
 
         Scene currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name != escenaAnt)
-        {
-            escenaDiferente = true;
-            escenaAnt = currentScene.name;
-        }
-        else
-        {
-            escenaDiferente = false;
-        }
 
         if (currentScene.name == "Nivel0" || currentScene.name == "Muestra")
         {
@@ -46,6 +38,18 @@ public class Arma : MonoBehaviour
         {
             LoadData();
         }
+
+        if (currentScene.name != escenaAnt)
+        {
+            escenaDiferente = true;
+            escenaAnt = currentScene.name;
+        }
+        else
+        {
+            escenaDiferente = false;
+        }
+
+        
         
         textMostrarBalas.text = "Municion: " + municion;
         textMostrarCargador.text = "Cargadores: " + cargador;
@@ -96,11 +100,13 @@ public class Arma : MonoBehaviour
     {
         PlayerPrefs.SetInt(balasPrefsName, municion);
         PlayerPrefs.SetInt(cargadorPrefsName, cargador);
+        PlayerPrefs.SetString(escenaPrefsName, escenaAnt);
     }
 
     private void LoadData()
     {
-        municion = PlayerPrefs.GetInt(balasPrefsName, 1);
-        cargador = PlayerPrefs.GetInt(cargadorPrefsName, 6);
+        municion = PlayerPrefs.GetInt(balasPrefsName);
+        cargador = PlayerPrefs.GetInt(cargadorPrefsName);
+        escenaAnt = PlayerPrefs.GetString(escenaPrefsName);
     }
 }

@@ -16,14 +16,25 @@ public class VidaJugador : MonoBehaviour
     public ControlarAudio controAU;
 
     private String vidaPrefsName = "ItemVida";
+    private String escenaPrefsName = "nombreEscena";
 
-    private string escenaAnt = "";
+    private static string escenaAnt = "";
     private bool escenaDiferente = true;
 
     void Start()
     {
 
         Scene currentScene = SceneManager.GetActiveScene();
+
+        if (currentScene.name == "Nivel0" || currentScene.name == "Muestra")
+        {
+            vida = 80;
+        }
+        else
+        {
+            LoadData();
+        }
+
         if (currentScene.name != escenaAnt)
         {
             escenaDiferente = true;
@@ -34,14 +45,7 @@ public class VidaJugador : MonoBehaviour
             escenaDiferente = false;
         }
 
-        if (currentScene.name == "Nivel0" || currentScene.name == "Muestra")
-        {
-            vida = 80;
-        }
-        else
-        {
-            LoadData();
-        }
+        
         noDamage();
     }
 
@@ -120,10 +124,12 @@ public class VidaJugador : MonoBehaviour
     private void SaveData()
     {
         PlayerPrefs.SetInt(vidaPrefsName, vida);
+        PlayerPrefs.SetString(escenaPrefsName, escenaAnt);
     }
 
     private void LoadData()
     {
         vida = PlayerPrefs.GetInt(vidaPrefsName, 80);
+        escenaAnt = PlayerPrefs.GetString(escenaPrefsName);
     }
 }
