@@ -32,6 +32,7 @@ public class VidaJugador : MonoBehaviour
         else
         {
             LoadData();
+            ControladorEscenas.nextLVL = 0;
         }
 
         noDamage();
@@ -103,11 +104,12 @@ public class VidaJugador : MonoBehaviour
 
     private void OnDestroy()
     {
+           Debug.Log("Destruccion Vida");
 
-        if (ControladorEscenas.nextLVL == true)
+        if (ControladorEscenas.nextLVL == 1)
         {
+            Debug.Log("Guardando Vida ");
             SaveData();
-            ControladorEscenas.nextLVL = false;
         }
 
     }

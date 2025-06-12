@@ -43,6 +43,7 @@ public class ControladorItem : MonoBehaviour
         else
         {
             LoadData();
+            ControladorEscenas.nextLVL = 0;
         }
 
 
@@ -121,11 +122,11 @@ public class ControladorItem : MonoBehaviour
 
     private void OnDestroy()
     {
-
-        if (ControladorEscenas.nextLVL == true)
+        Debug.Log("Destruccion Item");
+        if (ControladorEscenas.nextLVL == 1)
         {
+            Debug.Log("Guardando Items");
             SaveData();
-            ControladorEscenas.nextLVL = false;
         }
     }
 

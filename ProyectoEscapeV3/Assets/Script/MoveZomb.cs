@@ -78,12 +78,10 @@ public class MoveZomb : MonoBehaviour
 
                         if (aleatorio == 1)
                         {
-                            Debug.Log("sonando");
                             zombie1.Play();
                         }
                         else if (aleatorio == 2)
                         {
-                            Debug.Log("sonando");
                             zombie2.Play();
                         }
                         contaTiempAtac = 0;

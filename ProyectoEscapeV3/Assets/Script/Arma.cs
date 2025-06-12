@@ -25,7 +25,6 @@ public class Arma : MonoBehaviour
 
     void Start()
     {
-
         Scene currentScene = SceneManager.GetActiveScene();
 
         if (currentScene.name == "Nivel0" || currentScene.name == "Muestra")
@@ -36,15 +35,8 @@ public class Arma : MonoBehaviour
         else
         {
             LoadData();
+            ControladorEscenas.nextLVL = 0;
         }
-
-        /*if (currentScene.name != escenaAnt)
-        {
-            SaveData();
-            escenaAnt = currentScene.name;
-        }*/
-
-        
         
         textMostrarBalas.text = "Municion: " + municion;
         textMostrarCargador.text = "Cargadores: " + cargador;
@@ -81,14 +73,18 @@ public class Arma : MonoBehaviour
         {
             controAU.sinMunicion.Play();
         }
+
+        
     }
 
     private void OnDestroy()
     {
-        if (ControladorEscenas.nextLVL == true)
+        Debug.Log("Destruccion Balas");
+
+        if (ControladorEscenas.nextLVL == 1)
         {
+            Debug.Log("Guardando Balas");
             SaveData();
-            ControladorEscenas.nextLVL = false;
         }
             
     }
@@ -98,6 +94,7 @@ public class Arma : MonoBehaviour
         PlayerPrefs.SetInt(balasPrefsName, municion);
         PlayerPrefs.SetInt(cargadorPrefsName, cargador);
         PlayerPrefs.SetString(escenaPrefsName, escenaAnt);
+        
     }
 
     private void LoadData()

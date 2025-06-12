@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class ControladorEscenas : MonoBehaviour
 {
-    public static bool nextLVL = false;
+    //private String nextLVLPrefsName = "Next LVL";
+    public static int nextLVL = 0;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class ControladorEscenas : MonoBehaviour
 
     public void cambiarNivel(string nombreEscena)
     {
-        nextLVL = true;
+        nextLVL = 1;
         SceneManager.LoadScene(nombreEscena);
     }
 
