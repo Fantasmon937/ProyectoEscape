@@ -41,27 +41,26 @@ public class JugadorMov : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
-            multSprint = velMov * 2;
+            multSprint = velMov * 1.5f;
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
             multSprint = velMov;
         }
 
-
-        if (movX == 0 && movZ == 0)
+        if (!PausaJuego.juegoPausa)
         {
-            controAU.pasos.Stop();
+            if (!controAU.pasos.isPlaying && (movX != 0 || movZ != 0))
+            {
+                controAU.pasos.Play();
+            }else if (movX == 0 && movZ == 0){
+                controAU.pasos.Stop();
+            }
         }
         else
         {
-            if (controAU.pasos.isPlaying == false)
-            {
-                controAU.pasos.Play();
-            }
-            
+            controAU.pasos.Stop();
         }
-
     }
 
     private void FixedUpdate()
