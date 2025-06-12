@@ -22,7 +22,6 @@ public class Arma : MonoBehaviour
     private String escenaPrefsName = "nombreEscena";
 
     private static string escenaAnt = "";
-    private bool escenaDiferente = true;
 
     void Start()
     {
@@ -39,15 +38,11 @@ public class Arma : MonoBehaviour
             LoadData();
         }
 
-        if (currentScene.name != escenaAnt)
+        /*if (currentScene.name != escenaAnt)
         {
-            escenaDiferente = true;
+            SaveData();
             escenaAnt = currentScene.name;
-        }
-        else
-        {
-            escenaDiferente = false;
-        }
+        }*/
 
         
         
@@ -90,10 +85,12 @@ public class Arma : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (escenaDiferente == true)
+        if (ControladorEscenas.nextLVL == true)
         {
             SaveData();
+            ControladorEscenas.nextLVL = false;
         }
+            
     }
 
     private void SaveData()

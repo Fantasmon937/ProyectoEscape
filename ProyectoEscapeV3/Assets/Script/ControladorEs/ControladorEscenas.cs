@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class ControladorEscenas : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static bool nextLVL = false;
     void Start()
     {
         
@@ -27,6 +27,12 @@ public class ControladorEscenas : MonoBehaviour
 
     public void cambiarEscena(string nombreEscena)
     {
+        SceneManager.LoadScene(nombreEscena);
+    }
+
+    public void cambiarNivel(string nombreEscena)
+    {
+        nextLVL = true;
         SceneManager.LoadScene(nombreEscena);
     }
 

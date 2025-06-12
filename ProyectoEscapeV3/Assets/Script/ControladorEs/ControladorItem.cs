@@ -24,7 +24,6 @@ public class ControladorItem : MonoBehaviour
 
     private static string escenaAnt="";
     private static string escenaAct = "";
-    private bool escenaDiferente = true;
 
 
 
@@ -46,21 +45,6 @@ public class ControladorItem : MonoBehaviour
             LoadData();
         }
 
-
-        if (escenaAct == escenaAnt)
-        {
-            Debug.Log("Escena igual");
-            escenaDiferente = false;
-        }
-        else
-        {
-            Debug.Log("Escena diferente");
-            escenaDiferente = true;
-            escenaAnt = escenaAct;
-            
-        }
-
-        
 
         jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<VidaJugador>();
         textCantidadCer.text = cantidadCer + "";
@@ -137,15 +121,12 @@ public class ControladorItem : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (escenaDiferente == true)
-        {
 
-            Debug.Log("Datos Guardados");
-            Debug.Log("Nombre escena Ant  " + escenaAnt);
-            Debug.Log("Nombre escena Actual  " + escenaAct);
+        if (ControladorEscenas.nextLVL == true)
+        {
             SaveData();
+            ControladorEscenas.nextLVL = false;
         }
-        
     }
 
     private void SaveData()
