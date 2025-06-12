@@ -44,7 +44,7 @@ public class MoveZomb : MonoBehaviour
 
         if (PausaJuego.juegoPausa == false)
         {
-            if (atacando)
+            if (atacando && vivo)
             {
                 zombie1.Stop();
                 zombie2.Stop();
@@ -62,7 +62,7 @@ public class MoveZomb : MonoBehaviour
                 }
             }
 
-            if (vivo)
+            if (vivo )
             {
                 anima.SetBool("muerto", false);
                 if (!perseguir)
