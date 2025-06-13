@@ -384,18 +384,18 @@ ModelImporter:
         length: 0
         modified: 0
     skeleton:
-    - name: LocoV1(Clone)
+    - name: Zombie(Clone)
       parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: Prota
-      parentName: LocoV1(Clone)
+      parentName: Zombie(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: metarig
-      parentName: LocoV1(Clone)
+      parentName: Zombie(Clone)
       position: {x: -0, y: 0, z: 0}
       rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
       scale: {x: 100, y: 100, z: 100}
@@ -606,7 +606,7 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: 6cdb6fc877b5027479a97a1e745b5f9e, type: 3}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: e9c7016a2146cc34584f58d63b7dd67e, type: 3}
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 3
   humanoidOversampling: 1
