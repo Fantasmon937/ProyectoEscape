@@ -47,6 +47,7 @@ MonoBehaviour:
   proyectil: {fileID: 7876747539665453706, guid: 387e816e4c8dffa4cba0fb775c6c5420, type: 3}
   textMostrarBalas: {fileID: 0}
   textMostrarCargador: {fileID: 0}
+  controAU: {fileID: 0}
 --- !u!1 &326851704623239957
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,7 +1698,7 @@ Animator:
   m_GameObject: {fileID: 7886854597729098173}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: f62abafd84c20e741997911fededebcb, type: 3}
-  m_Controller: {fileID: 9100000, guid: 5bcbca0a66a8f7f4883e839fcc082bc9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 14431a9a2ff6bbc4594f495661d27efe, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1721,7 +1722,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velMov: 800
+  multSprint: 350
   orientacion: {fileID: 3318322147120690651}
+  controAU: {fileID: 0}
 --- !u!114 &5154447376818553230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,6 +1740,7 @@ MonoBehaviour:
   barraVida: {fileID: 0}
   textVida: {fileID: 0}
   color: {fileID: 2100000, guid: 9ca9576d5ae2ea542ba71d98e7a2c86c, type: 2}
+  controAU: {fileID: 0}
 --- !u!1 &8350375573063332326
 GameObject:
   m_ObjectHideFlags: 0
