@@ -9,11 +9,13 @@ public class VidaZomb : MonoBehaviour
     public GameObject[] objetosDrop;
     private bool vivo = true;
     public Material color;
+    private CapsuleCollider hitbox;
 
     void Start()
     {
         noDamage();
         enemigo = GetComponentInParent<MoveZomb>();
+        hitbox = GetComponent<CapsuleCollider>();
     }
 
 
@@ -27,6 +29,7 @@ public class VidaZomb : MonoBehaviour
                 enemigo.vivo = false;
                 vivo = false;
                 enemigo.autoDestruccion();
+                hitbox.enabled = false;
 
                 int aleatorio = Random.Range(0, 100);
                 if (aleatorio >= 0 && Arma.municion <= 3)

@@ -27,6 +27,8 @@ public class MoveZomb : MonoBehaviour
     private float contaTiempAtac = 0;
     private float tiempEntreAtac = 5;
 
+    private CapsuleCollider hitbox;
+
     void Start()
     {
         jugadorObjetivo = GameObject.FindGameObjectWithTag("Player");
@@ -36,6 +38,7 @@ public class MoveZomb : MonoBehaviour
 
         jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<VidaJugador>();
 
+        hitbox = GetComponent<CapsuleCollider>();
 
     }
 
@@ -154,6 +157,9 @@ public class MoveZomb : MonoBehaviour
         atacar.Stop();
         zombie1.Stop();
         zombie2.Stop();
+
+        hitbox.enabled = false;
+
         Destroy(this.gameObject, 3.5f);
     }
 

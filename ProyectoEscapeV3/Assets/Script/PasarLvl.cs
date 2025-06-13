@@ -25,7 +25,7 @@ public class PasarLvl : MonoBehaviour, IInteractable
     {
         Scene escena = SceneManager.GetActiveScene();
 
-        if (Libros.contadorLibros >= 0 || escena.name=="Muestra")
+        if (Libros.contadorLibros >= 5 || escena.name=="Muestra")
         {
             PausaJuego.NivelCompleto();
             menuWin.SetActive(true);
