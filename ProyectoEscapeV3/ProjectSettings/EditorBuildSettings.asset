@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel1.unity
     guid: ecbf7bde814217749b97f46469a373ba
+  - enabled: 1
+    path: Assets/Scenes/HistoriaObjetivos.unity
+    guid: 3eb9e3a878852b24193e7d9994810e6f
   m_configObjects: {}
